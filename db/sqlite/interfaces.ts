@@ -10,3 +10,8 @@ export interface Config {
   mode?: number;
   driver: any;
 }
+
+export interface RusResult {
+  lastID?: number;
+  changes?: number;
+}
