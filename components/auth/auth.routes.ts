@@ -1,12 +1,14 @@
 import { CommonRoutes } from "../common/common.routes";
-import express from "express";
+import { Router } from "express";
 
 export class AuthRoutes extends CommonRoutes {
-  constructor(app: express.Application) {
+  constructor(app: Router) {
     super(app, "AuthRoutes");
   }
 
-  configureRoutes(): express.Application {
+  configureRoutes(): Router {
+    this.app.use("users", this.router);
+
     return this.app;
   }
 }

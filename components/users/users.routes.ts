@@ -1,12 +1,14 @@
 import { CommonRoutes } from "../common/common.routes";
-import express from "express";
+import { Router } from "express";
 
 export class UserRoutes extends CommonRoutes {
-  constructor(app: express.Application) {
+  constructor(app: Router) {
     super(app, "UserRoutes");
   }
 
-  configureRoutes(): express.Application {
+  configureRoutes(): Router {
+    this.app.use("users", this.router);
+
     return this.app;
   }
 }

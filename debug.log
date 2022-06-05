@@ -4,3 +4,6 @@
 {"level":"debug","message":"Logging initialized at debug level"}
 {"level":"info","message":"Express loaded"}
 {"level":"info","message":"\n        ****************************************\n        \ud83d\ude80 Server listening on port: 3000\n        ****************************************\n      "}
+{"level":"debug","message":"Logging initialized at debug level"}
+{"level":"info","message":"Express loaded"}
+{"level":"info","message":"\n        ****************************************\n        \ud83d\ude80 Server listening on port: 3000\n        ****************************************\n      "}
