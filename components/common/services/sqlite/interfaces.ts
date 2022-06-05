@@ -11,7 +11,7 @@ export interface Config {
   driver: any;
 }
 
-export interface RusResult {
+export interface RunResult {
   lastID?: number;
   changes?: number;
 }

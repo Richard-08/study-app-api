@@ -1,4 +1,4 @@
-import { SqlObj, SqlType, Config, RusResult } from "./interfaces";
+import { SqlObj, SqlType, Config, RunResult } from "./interfaces";
 import sqlite3 from "sqlite3";
 
 export class Database {
@@ -7,35 +7,7 @@ export class Database {
 
   constructor(config: Config) {
     this.config = config;
-    this.db = null;
-  }
-
-  open(): void {
-    let { filename, mode, driver } = this.config;
-
-    if (filename === null || filename === undefined) {
-      throw new Error("Sqlite file not found");
-    }
-
-    if (!driver) {
-      throw new Error("Sqlite driver not found");
-    }
-
-    if (mode) {
-      this.db = new driver(filename, mode, (err) => {
-        if (err) {
-          console.log("Sqlite connect error");
-          throw new Error(err.message);
-        }
-      });
-    } else {
-      this.db = new driver(filename, (err) => {
-        if (err) {
-          console.log("Sqlite connect error");
-          throw new Error(err.message);
-        }
-      });
-    }
+    this.db = new config.driver(config.filename, config.mode);
   }
 
   close(): Promise<void> {
@@ -50,7 +22,7 @@ export class Database {
     });
   }
 
-  run(sql: SqlType, params: any[]): Promise<RusResult> {
+  run(sql: SqlType, params: any[]): Promise<RunResult> {
     return new Promise((resolve, reject) => {
       this.db.run(sql, params, function (err) {
         if (err) {
