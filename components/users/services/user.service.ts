@@ -1,8 +1,8 @@
-import { CreateUser } from "../interfaces/user.interface";
+import { IUser } from "../interfaces/user.interface";
 import UserDao from "../dao/users.dao";
 
 class UserService {
-  create(payload: CreateUser) {
+  create(payload: IUser) {
     return UserDao.create(payload);
   }
 

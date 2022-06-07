@@ -1,11 +1,11 @@
-import { SqlObj, SqlType, Config, RunResult } from "./interfaces";
+import { ISqlObj, SqlType, IConfig, IRunResult } from "./interfaces";
 import sqlite3 from "sqlite3";
 
 export class Database {
-  config: Config;
+  config: IConfig;
   db: sqlite3.Database;
 
-  constructor(config: Config) {
+  constructor(config: IConfig) {
     this.config = config;
     this.db = new config.driver(config.filename, config.mode);
   }
@@ -22,7 +22,7 @@ export class Database {
     });
   }
 
-  run(sql: SqlType, params: any[]): Promise<RunResult> {
+  run(sql: SqlType, params: any[]): Promise<IRunResult> {
     return new Promise((resolve, reject) => {
       this.db.run(sql, params, function (err) {
         if (err) {

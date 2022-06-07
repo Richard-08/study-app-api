@@ -1,17 +1,17 @@
-export interface SqlObj {
+export interface ISqlObj {
   sql: string;
   params: any[];
 }
 
 export type SqlType = string;
 
-export interface Config {
+export interface IConfig {
   filename: string;
   mode?: number;
   driver: any;
 }
 
-export interface RunResult {
+export interface IRunResult {
   lastID?: number;
   changes?: number;
 }

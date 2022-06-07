@@ -18,10 +18,15 @@
   },
   "homepage": "https://github.com/Richard-08/study-app-api#readme",
   "dependencies": {
+    "@types/jsonwebtoken": "^8.5.8",
+    "@types/passport-jwt": "^3.0.6",
     "bcrypt": "^5.0.1",
     "cors": "^2.8.5",
     "express": "^4.18.1",
+    "express-validator": "^6.14.1",
+    "jsonwebtoken": "^8.5.1",
     "passport": "^0.6.0",
+    "passport-jwt": "^4.0.0",
     "passport-local": "^1.0.0",
     "sqlite3": "^5.0.8",
     "winston": "^3.7.2"

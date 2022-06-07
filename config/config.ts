@@ -11,6 +11,7 @@ const parsed = result.parsed;
 
 export default {
   PORT: parsed?.PORT || 3000,
+  JWT_SECRET: parsed?.JWT_SECRET || "token_secret",
   api: {
     prefix: "/api",
   },

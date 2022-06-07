@@ -1,5 +1,5 @@
 import db from "../../../loaders/sqlite";
-import { CreateUser } from "../interfaces/user.interface";
+import { IUser } from "../interfaces/user.interface";
 
 class UserDao {
   findById(id: number) {
@@ -10,7 +10,7 @@ class UserDao {
     return db.get("SELECT * FROM users WHERE email = ?", [email]);
   }
 
-  create(payload: CreateUser) {
+  create(payload: IUser) {
     const { username, email, password } = payload;
     return db.run(
       "INSERT INTO users (username, email, password) VALUES (?, ?, ?)",
